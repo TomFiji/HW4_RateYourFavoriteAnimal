@@ -4,46 +4,28 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.content.res.Configuration
+import androidx.lifecycle.ViewModelProvider
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var viewModel: PositionViewModel
-    var position = 3
-    var selectedItem = ""
+    public val ANIMAL_NAMES = listOf("Dog", "Cat", "Bear", "Rabbit")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.main_container, ListFragment())
+            .addToBackStack(null)
+            .commit()
+
+        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.details_container, RatingFragment())
+                .addToBackStack(null)
+                .commit()
+        }
+
     }
-
-    //viewModel = ViewModelProvider(requireActivity()).get(PositionViewModel::class.java)
-
-    fun dogButtonClick(view: View){
-        position = 0
-        viewModel.setPosition(position)
-        selectedItem = "dog"
-    }
-
-    fun catButtonClick(view: View){
-        position = 1
-        viewModel.setPosition(position)
-        selectedItem = "cat"
-    }
-
-    fun bearButtonClick(view: View){
-        position = 2
-        viewModel.setPosition(position)
-        selectedItem = "bear"
-    }
-
-    fun bunnyButtonClick(view: View){
-        viewModel.setPosition(position)
-        selectedItem = "bunny"
-    }
-
-    supportFragmentManager.beginTransaction()
-        .replace(R.id.main_container, AnimalListFragment())
-        .addToBackStack(null)
-        .commit()
 
 }
