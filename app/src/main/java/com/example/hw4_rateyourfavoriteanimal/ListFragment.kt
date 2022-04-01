@@ -1,5 +1,6 @@
 package com.example.hw4_rateyourfavoriteanimal
 
+import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.SharedPreferences
@@ -11,15 +12,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fragment_list.*
+import org.w3c.dom.Text
 
 class ListFragment : Fragment() {
     lateinit var viewModel: PositionViewModel
     var position = -1
     var selectedItem = ""
     private val ANIMAL_NAMES = listOf("Dog", "Cat", "Bear", "Rabbit")
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,15 +58,16 @@ class ListFragment : Fragment() {
 
 
         var sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
-        var dog_rating = sharedPreferences?.getString(ANIMAL_NAMES[0], "-") ?: -1
-//        var cat_rating = sharedPreferences.getString(ANIMAL_NAMES[1], "-")?.toInt() ?: -1
-//        var bear_rating = sharedPreferences.getString(ANIMAL_NAMES[2], "-")?.toInt() ?: -1
-//        var bunny_rating = sharedPreferences.getString(ANIMAL_NAMES[3], "-")?.toInt() ?: -1
+        var dog_rating = sharedPreferences.getString(ANIMAL_NAMES[0], "-")
+        var cat_rating = sharedPreferences.getString(ANIMAL_NAMES[1], "-")
+        var bear_rating = sharedPreferences.getString(ANIMAL_NAMES[2], "-")
+        var bunny_rating = sharedPreferences.getString(ANIMAL_NAMES[3], "-")
 
-        dogRatingText.text = "Your rating: $dog_rating"
-//        catRatingText.text = "Your rating: $cat_rating.toString()"
-//        bearRatingText.text = "Your rating: $bear_rating.toString()"
-//        bunnyRatingText.text = "Your rating:  $bunny_rating.toString()"
+        view.findViewById<TextView>(R.id.dogRatingText).text = "Your rating: $dog_rating"
+        view.findViewById<TextView>(R.id.catRatingText).text = "Your rating: $cat_rating"
+        view.findViewById<TextView>(R.id.bearRatingText).text = "Your rating: $bear_rating"
+        view.findViewById<TextView>(R.id.bunnyRatingText).text = "Your rating: $bunny_rating"
+
 
         return view
     }

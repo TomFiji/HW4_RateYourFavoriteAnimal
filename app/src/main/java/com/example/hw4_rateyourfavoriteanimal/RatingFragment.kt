@@ -8,9 +8,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.RatingBar
-import android.widget.TextView
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
@@ -45,16 +43,20 @@ class RatingFragment : Fragment() {
         view.findViewById<ImageView>(R.id.animalImage).setImageResource(imageID)
         view.findViewById<TextView>(R.id.animalText).text = ANIMAL_NAMES[position]
 
+        view.findViewById<Button>(R.id.saveRatingButton).setOnClickListener {
+            saveRating(view)
+        }
+
         return view
     }
 
     fun saveRating(view: View){
         val myRatingBar = view.findViewById<RatingBar>(R.id.ratingBar)
-        //val rating = myRatingBar.rating.toString()
+        val rating = myRatingBar.rating.toString()
         val sharedPreferences = requireActivity().getPreferences(MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         if(editor!=null){
-            editor.putString(ANIMAL_NAMES[position], "3")
+            editor.putString(ANIMAL_NAMES[position], rating)
             editor.apply()
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.main_container, ListFragment())

@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModelProvider
 
 class MainActivity : AppCompatActivity() {
 
-    public val ANIMAL_NAMES = listOf("Dog", "Cat", "Bear", "Rabbit")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

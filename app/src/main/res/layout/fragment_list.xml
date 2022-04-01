@@ -9,25 +9,34 @@
 
     <ImageButton
         android:id="@+id/dogButton"
-        android:layout_width="127dp"
-        android:layout_height="87dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="4dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/dog"
+        app:layout_constraintEnd_toStartOf="@+id/catButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/dogRatingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:text="Your rating: "
+        app:layout_constraintStart_toStartOf="@+id/dogButton"
+        app:layout_constraintTop_toBottomOf="@+id/dogButton" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:text="Rate Your Favorite Animal"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.276"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,92 +44,67 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:text="Press on the images below to rate your favorite animal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.098"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <ImageButton
         android:id="@+id/catButton"
-        android:layout_width="123dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/cat"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.445"
         app:layout_constraintStart_toEndOf="@+id/dogButton"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toTopOf="@+id/dogButton" />
 
     <ImageButton
         android:id="@+id/bearButton"
-        android:layout_width="129dp"
-        android:layout_height="78dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="4dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/bear"
         app:layout_constraintEnd_toStartOf="@+id/bunnyButton"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dogRatingText" />
 
     <ImageButton
         android:id="@+id/bunnyButton"
-        android:layout_width="133dp"
-        android:layout_height="81dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="84dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/rabbit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/catButton" />
-
-    <TextView
-        android:id="@+id/dogRatingText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Your rating: "
-        app:layout_constraintEnd_toStartOf="@+id/catRatingText"
-        app:layout_constraintHorizontal_bias="0.262"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dogButton" />
+        app:layout_constraintStart_toEndOf="@+id/bearButton"
+        app:layout_constraintTop_toTopOf="@+id/bearButton" />
 
     <TextView
         android:id="@+id/catRatingText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="124dp"
         android:text="Your rating: "
-        app:layout_constraintBottom_toTopOf="@+id/bunnyButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/catButton"
-        app:layout_constraintVertical_bias="0.222" />
+        app:layout_constraintStart_toStartOf="@+id/catButton"
+        app:layout_constraintTop_toBottomOf="@+id/catButton" />
 
     <TextView
         android:id="@+id/bearRatingText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="22dp"
         android:text="Your rating: "
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bunnyRatingText"
-        app:layout_constraintHorizontal_bias="0.088"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bearButton"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="@+id/bearButton"
+        app:layout_constraintTop_toBottomOf="@+id/bearButton" />
 
     <TextView
         android:id="@+id/bunnyRatingText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="112dp"
+        android:layout_marginTop="2dp"
         android:text="Your rating: "
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bunnyButton"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="@+id/bunnyButton"
+        app:layout_constraintTop_toBottomOf="@+id/bunnyButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
